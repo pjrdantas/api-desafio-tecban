@@ -41,13 +41,8 @@ public class ContatoRepositoryImpl implements ContatoRepository {
 				.addValue("tbContatoNome", ContatoDto.getContatoNome())
 				.addValue("tbContatoEmail", ContatoDto.getContatoEmail())
 				.addValue("tbContatoTelefone", ContatoDto.getContatoTelefone());
-
-		try {
+		
 			jdbcTemplate.update(sql.toString(), params);
-			log.info("ContatoRepositoryImpl.addContatoDto--------> CONTATO INCLUIDO COM SUCESSO!");
-		} catch (Exception e) {
-			log.error("ContatoRepositoryImpl.addContatoDto----------------- ERRO NA INCLUSÃO DO CONTATO: " + e.toString());
-		}		
 	}
 
 	@Override
@@ -64,9 +59,9 @@ StringBuilder sql = new StringBuilder();
 
 		SqlParameterSource params = new MapSqlParameterSource()
 				.addValue("id", ContatoDto.getId())
-				.addValue("ContatoNome", ContatoDto.getContatoNome())
-				.addValue("ContatoEmail", ContatoDto.getContatoEmail())
-				.addValue("ContatoTelefone", ContatoDto.getContatoTelefone());
+				.addValue("tbContatoNome", ContatoDto.getContatoNome())
+				.addValue("tbContatoEmail", ContatoDto.getContatoEmail())
+				.addValue("tbContatoTelefone", ContatoDto.getContatoTelefone());
 		
 		try {
 			jdbcTemplate.update(sql.toString(), params);
@@ -134,13 +129,13 @@ StringBuilder sql = new StringBuilder();
 	private List<ContatoDto> devolveListaObjetos(StringBuilder sql, SqlParameterSource params) throws Exception, Throwable {
 		return jdbcTemplate.query(sql.toString(), params, (rs, i) -> {
 			
-			ContatoDto ContatoDto = new ContatoDto();
+			ContatoDto contatoDto = new ContatoDto();
 			
-			ContatoDto.setId(rs.getInt("id"));
-			ContatoDto.setContatoNome(rs.getString("tb_Contato_nome"));
-			ContatoDto.setContatoEmail(rs.getString("tb_Contato_email"));
-			ContatoDto.setContatoTelefone(rs.getString("tb_Contato_telefone"));
-			return ContatoDto;
+			contatoDto.setId(rs.getInt("id"));
+			contatoDto.setContatoNome(rs.getString("tb_Contato_nome"));
+			contatoDto.setContatoEmail(rs.getString("tb_Contato_email"));
+			contatoDto.setContatoTelefone(rs.getString("tb_Contato_telefone"));
+			return contatoDto;
 		});
 		
 	}
@@ -148,13 +143,13 @@ StringBuilder sql = new StringBuilder();
 	private ContatoDto devolveObjeto(StringBuilder sql, SqlParameterSource params) throws Exception, Throwable {
 		return jdbcTemplate.queryForObject(sql.toString(), params, (rs, i) -> {
 			
-			ContatoDto ContatoDto = new ContatoDto();
+			ContatoDto contatoDto = new ContatoDto();
 			
-			ContatoDto.setId(rs.getInt("id"));
-			ContatoDto.setContatoNome(rs.getString("tb_Contato_nome"));
-			ContatoDto.setContatoEmail(rs.getString("tb_Contato_email"));
-			ContatoDto.setContatoTelefone(rs.getString("tb_Contato_telefone"));
-			return ContatoDto;
+			contatoDto.setId(rs.getInt("id"));
+			contatoDto.setContatoNome(rs.getString("tb_Contato_nome"));
+			contatoDto.setContatoEmail(rs.getString("tb_Contato_email"));
+			contatoDto.setContatoTelefone(rs.getString("tb_Contato_telefone"));
+			return contatoDto;
 		});
 	}
 

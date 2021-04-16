@@ -49,4 +49,6 @@ public interface ContatoService {
 	 * @throws Throwable
 	 */
 	void deleteContatoById(int id)  throws Exception, Throwable;
+
+	
 }

@@ -1,14 +1,21 @@
 package br.com.tecban.dto;
 
+import javax.validation.constraints.NotBlank;
+
 public class ContatoDto {
 	
 	
-	private int id;	
-	private String contatoNome;	
-	private String contatoEmail;
-	private String contatoTelefone;
+	private  int id;	
+	@NotBlank
+	private  String contatoNome;	
+	@NotBlank
+	private  String contatoEmail;
+	@NotBlank
+	private  String contatoTelefone;
 	
-	public ContatoDto() {
+	
+	
+	public  ContatoDto() {
 	}
 
 	public int getId() {
@@ -42,6 +49,8 @@ public class ContatoDto {
 	public void setContatoTelefone(String contatoTelefone) {
 		this.contatoTelefone = contatoTelefone;
 	}
+
+	
 
 
 }

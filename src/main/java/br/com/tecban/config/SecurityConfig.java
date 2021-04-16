@@ -16,11 +16,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private CustomUserDetailService customUserDetailService;
 	
-	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.anyRequest().authenticated()
+		.antMatchers("/*/protected/*/*/**" ).hasRole("USER")
+		.antMatchers("/*/admin/*/*/**" ).hasRole("ADMIN")
 		.and()
 		.httpBasic()
 		.and().csrf().disable();

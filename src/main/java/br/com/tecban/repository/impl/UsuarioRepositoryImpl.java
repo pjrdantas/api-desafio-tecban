@@ -62,7 +62,7 @@ StringBuilder sql = new StringBuilder();
 		sql.append(" tb_usuario_login = :tbUsuarioLogin, ");
 		sql.append(" tb_usuario_nome = :tbUsuarioNome, ");
 		sql.append(" tb_usuario_senha = :tbUsuarioSenha, ");
-		sql.append(" tb_usuario_login = :tbUsuarioLogin ");	
+		sql.append(" tb_usuario_login = :tbUsuarioAdmin ");	
 		sql.append(" WHERE id = :id");
 
 		SqlParameterSource params = new MapSqlParameterSource()

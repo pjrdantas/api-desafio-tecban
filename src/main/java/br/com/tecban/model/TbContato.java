@@ -13,8 +13,8 @@ public class TbContato {
 	@Column(name="id", unique=true, nullable=false)
 	private int id;
 
-	@Column(name="tb_contato_contato")
-	private String tbContatoContato;
+	@Column(name="tb_contato_nome")
+	private String tbContatoNome;
 
 	@Column(name="tb_contato_email")
 	private String tbContatoEmail;
@@ -33,12 +33,12 @@ public class TbContato {
 		this.id = id;
 	}
 
-	public String getTbContatoContato() {
-		return tbContatoContato;
+	public String getTbContatoNome() {
+		return tbContatoNome;
 	}
 
-	public void setTbContatoContato(String tbContatoContato) {
-		this.tbContatoContato = tbContatoContato;
+	public void setTbContatoNome(String tbContatoNome) {
+		this.tbContatoNome = tbContatoNome;
 	}
 
 	public String getTbContatoEmail() {
@@ -56,7 +56,6 @@ public class TbContato {
 	public void setTbContatoTelefone(String tbContatoTelefone) {
 		this.tbContatoTelefone = tbContatoTelefone;
 	}
-	
-	
+
 
 }
